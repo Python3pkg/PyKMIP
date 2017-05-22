@@ -35,7 +35,7 @@ def count_bytes(num):
 
 def print_bytearray(array):
     sbuffer = hexlify_bytearray(array)
-    print('buffer: {0}'.format(sbuffer))
+    print(('buffer: {0}'.format(sbuffer)))
 
 
 def hexlify_bytearray(array):

@@ -191,7 +191,7 @@ class TestKmipSession(testtools.TestCase):
         Test that a client identity is obtained from a valid client
         certificate.
         """
-        client_certificate = build_certificate([u'Test Identity'])
+        client_certificate = build_certificate(['Test Identity'])
         der_encoding = client_certificate.public_bytes(
             serialization.Encoding.DER
         )
@@ -202,7 +202,7 @@ class TestKmipSession(testtools.TestCase):
         kmip_session._connection.getpeercert.return_value = der_encoding
 
         identity = kmip_session._get_client_identity()
-        self.assertEqual(u'Test Identity', identity)
+        self.assertEqual('Test Identity', identity)
 
         kmip_session._logger.info.assert_called_once_with(
             "Session client identity: Test Identity"
@@ -231,7 +231,7 @@ class TestKmipSession(testtools.TestCase):
         Test that the right error is generated when the client certificate
         is missing its extended key usage extension.
         """
-        client_certificate = build_certificate([u'Test Identity'], False)
+        client_certificate = build_certificate(['Test Identity'], False)
         der_encoding = client_certificate.public_bytes(
             serialization.Encoding.DER
         )
@@ -276,8 +276,8 @@ class TestKmipSession(testtools.TestCase):
         certificate has multiple subject common names.
         """
         client_certificate = build_certificate([
-            u'Test Identity 1',
-            u'Test Identity 2'
+            'Test Identity 1',
+            'Test Identity 2'
         ])
         der_encoding = client_certificate.public_bytes(
             serialization.Encoding.DER
@@ -289,7 +289,7 @@ class TestKmipSession(testtools.TestCase):
         kmip_session._connection.getpeercert.return_value = der_encoding
 
         identity = kmip_session._get_client_identity()
-        self.assertEqual(u'Test Identity 1', identity)
+        self.assertEqual('Test Identity 1', identity)
 
         kmip_session._logger.info.assert_called_once_with(
             "Session client identity: Test Identity 1"
@@ -305,7 +305,7 @@ class TestKmipSession(testtools.TestCase):
         extension.
         """
         client_certificate = build_certificate(
-            [u'Test Identity'],
+            ['Test Identity'],
             bad_extension=True
         )
         der_encoding = client_certificate.public_bytes(

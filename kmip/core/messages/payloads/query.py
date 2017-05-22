@@ -102,7 +102,7 @@ class QueryRequestPayload(Struct):
 
     def __validate(self):
         if isinstance(self.query_functions, list):
-            for i in xrange(len(self.query_functions)):
+            for i in range(len(self.query_functions)):
                 query_function = self.query_functions[i]
                 if not isinstance(query_function, QueryFunction):
                     msg = "invalid query function ({0} in list)".format(i)
@@ -266,7 +266,7 @@ class QueryResponsePayload(Struct):
     def __validate(self):
         # TODO (peter-hamilton) Add separate validate_list function for this
         if isinstance(self.operations, list):
-            for i in xrange(len(self.operations)):
+            for i in range(len(self.operations)):
                 operation = self.operations[i]
                 if not isinstance(operation, Operation):
                     msg = "invalid operation ({0} in list)".format(i)
@@ -280,7 +280,7 @@ class QueryResponsePayload(Struct):
             raise TypeError(msg)
 
         if isinstance(self.object_types, list):
-            for i in xrange(len(self.object_types)):
+            for i in range(len(self.object_types)):
                 object_type = self.object_types[i]
                 if not isinstance(object_type, ObjectType):
                     msg = "invalid object type ({0} in list)".format(i)
@@ -309,7 +309,7 @@ class QueryResponsePayload(Struct):
                 raise TypeError(msg)
 
         if isinstance(self.application_namespaces, list):
-            for i in xrange(len(self.application_namespaces)):
+            for i in range(len(self.application_namespaces)):
                 application_namespace = self.application_namespaces[i]
                 if not isinstance(application_namespace, ApplicationNamespace):
                     msg = "invalid application namespace ({0} in list)".format(
@@ -324,7 +324,7 @@ class QueryResponsePayload(Struct):
             raise TypeError(msg)
 
         if isinstance(self.extension_information, list):
-            for i in xrange(len(self.extension_information)):
+            for i in range(len(self.extension_information)):
                 extension_information = self.extension_information[i]
                 if not isinstance(extension_information, ExtensionInformation):
                     msg = "invalid extension information ({0} in list)".format(

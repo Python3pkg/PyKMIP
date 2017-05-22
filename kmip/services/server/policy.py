@@ -1089,7 +1089,7 @@ class AttributePolicy(object):
             bool: True if the attribute is supported by the current KMIP
                 version. False otherwise.
         """
-        if attribute not in self._attribute_rule_sets.keys():
+        if attribute not in list(self._attribute_rule_sets.keys()):
             return False
 
         rule_set = self._attribute_rule_sets.get(attribute)
@@ -1154,4 +1154,4 @@ class AttributePolicy(object):
         Returns:
             list: A list of string attribute names.
         """
-        return self._attribute_rule_sets.keys()
+        return list(self._attribute_rule_sets.keys())

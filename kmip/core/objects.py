@@ -582,7 +582,7 @@ class KeyValue(Struct):
             raise TypeError(msg)
 
         if isinstance(self.attributes, list):
-            for i in xrange(len(self.attributes)):
+            for i in range(len(self.attributes)):
                 attribute = self.attributes[i]
                 if not isinstance(attribute, Attribute):
                     msg = "invalid attribute ({0} in list)".format(i)
@@ -929,14 +929,14 @@ class TemplateAttribute(Struct):
             if len(self.attributes) != len(other.attributes):
                 return False
 
-            for i in xrange(len(self.names)):
+            for i in range(len(self.names)):
                 a = self.names[i]
                 b = other.names[i]
 
                 if a != b:
                     return False
 
-            for i in xrange(len(self.attributes)):
+            for i in range(len(self.attributes)):
                 a = self.attributes[i]
                 b = other.attributes[i]
 

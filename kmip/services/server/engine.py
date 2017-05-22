@@ -1110,9 +1110,9 @@ class KmipEngine(object):
         # Propagate common attributes if not overridden by the public/private
         # attribute sets
         for key, value in six.iteritems(common_attributes):
-            if key not in public_key_attributes.keys():
+            if key not in list(public_key_attributes.keys()):
                 public_key_attributes.update([(key, value)])
-            if key not in private_key_attributes.keys():
+            if key not in list(private_key_attributes.keys()):
                 private_key_attributes.update([(key, value)])
 
         # Error check for required attributes.

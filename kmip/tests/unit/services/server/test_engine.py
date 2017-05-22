@@ -190,7 +190,7 @@ class TestKmipEngine(testtools.TestCase):
         )
 
         self.assertEqual(3, len(e._operation_policies))
-        self.assertIn('test', e._operation_policies.keys())
+        self.assertIn('test', list(e._operation_policies.keys()))
 
         test_policy = {
             enums.ObjectType.CERTIFICATE: {
@@ -319,7 +319,7 @@ class TestKmipEngine(testtools.TestCase):
         )
 
         self.assertEqual(3, len(e._operation_policies))
-        self.assertIn('test', e._operation_policies.keys())
+        self.assertIn('test', list(e._operation_policies.keys()))
 
         test_policy = {
             enums.ObjectType.CERTIFICATE: {
@@ -1248,11 +1248,11 @@ class TestKmipEngine(testtools.TestCase):
         result = e._process_template_attribute(template_attribute)
 
         self.assertIsInstance(result, dict)
-        self.assertEqual(4, len(result.keys()))
-        self.assertIn('Name', result.keys())
-        self.assertIn('Cryptographic Algorithm', result.keys())
-        self.assertIn('Cryptographic Length', result.keys())
-        self.assertIn('Cryptographic Usage Mask', result.keys())
+        self.assertEqual(4, len(list(result.keys())))
+        self.assertIn('Name', list(result.keys()))
+        self.assertIn('Cryptographic Algorithm', list(result.keys()))
+        self.assertIn('Cryptographic Length', list(result.keys()))
+        self.assertIn('Cryptographic Usage Mask', list(result.keys()))
 
         self.assertEqual([name.attribute_value], result.get('Name'))
         self.assertEqual(

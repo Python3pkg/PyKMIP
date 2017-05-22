@@ -124,7 +124,7 @@ class TestQueryRequestPayload(TestCase):
             expected, observed)
         self.assertEqual(expected, observed, msg)
 
-        for i in xrange(len(query_functions)):
+        for i in range(len(query_functions)):
             expected = query_functions[i]
             observed = payload.query_functions[i]
 
@@ -443,7 +443,7 @@ class TestQueryResponsePayload(TestCase):
             expected, observed)
         self.assertEqual(expected, observed, msg)
 
-        for i in xrange(len(operations)):
+        for i in range(len(operations)):
             expected = operations[i]
             observed = payload.operations[i]
 
@@ -460,7 +460,7 @@ class TestQueryResponsePayload(TestCase):
             expected, observed)
         self.assertEqual(expected, observed, msg)
 
-        for i in xrange(len(object_types)):
+        for i in range(len(object_types)):
             expected = object_types[i]
             observed = payload.object_types[i]
 
@@ -502,7 +502,7 @@ class TestQueryResponsePayload(TestCase):
             expected, observed)
         self.assertEqual(expected, observed, msg)
 
-        for i in xrange(len(extension_information)):
+        for i in range(len(extension_information)):
             expected = extension_information[i]
             observed = payload.extension_information[i]
 

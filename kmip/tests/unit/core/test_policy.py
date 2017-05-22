@@ -45,7 +45,7 @@ class TestPolicy(testtools.TestCase):
         policies = policy.read_policy_from_file(policy_file.name)
 
         self.assertEqual(1, len(policies))
-        self.assertIn('test', policies.keys())
+        self.assertIn('test', list(policies.keys()))
 
         test_policy = {
             enums.ObjectType.CERTIFICATE: {

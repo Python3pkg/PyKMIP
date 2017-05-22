@@ -16,7 +16,7 @@
 try:
     import configparser
 except ImportError:
-    import ConfigParser as configparser
+    import configparser as configparser
 
 from testtools import TestCase
 from mock import MagicMock

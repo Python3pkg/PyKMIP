@@ -76,12 +76,12 @@ if __name__ == '__main__':
 
         logger.info('number of operations supported: {0}'.format(
             len(operations)))
-        for i in xrange(len(operations)):
+        for i in range(len(operations)):
             logger.info('operation supported: {0}'.format(operations[i]))
 
         logger.info('number of object types supported: {0}'.format(
             len(object_types)))
-        for i in xrange(len(object_types)):
+        for i in range(len(object_types)):
             logger.info('object type supported: {0}'.format(object_types[i]))
 
         logger.info('vendor identification: {0}'.format(vendor_identification))
@@ -89,13 +89,13 @@ if __name__ == '__main__':
 
         logger.info('number of application namespaces supported: {0}'.format(
             len(application_namespaces)))
-        for i in xrange(len(application_namespaces)):
+        for i in range(len(application_namespaces)):
             logger.info('application namespace supported: {0}'.format(
                 application_namespaces[i]))
 
         logger.info('number of extensions supported: {0}'.format(
             len(extension_information)))
-        for i in xrange(len(extension_information)):
+        for i in range(len(extension_information)):
             logger.info('extension supported: {0}'.format(
                 extension_information[i]))
 

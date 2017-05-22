@@ -1638,7 +1638,7 @@ class TestResponseMessage(TestCase):
                                          len_exp, len_rcv))
 
         msg = "Bad get response message write: encoding mismatch"
-        print(self.get)
+        print((self.get))
         print(result)
         self.assertEqual(self.get, result, msg)
 

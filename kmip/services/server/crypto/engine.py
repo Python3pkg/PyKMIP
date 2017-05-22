@@ -86,7 +86,7 @@ class CryptographyEngine(api.CryptographicEngine):
             >>> key = engine.create_symmetric_key(
             ...     CryptographicAlgorithm.AES, 256)
         """
-        if algorithm not in self._symmetric_key_algorithms.keys():
+        if algorithm not in list(self._symmetric_key_algorithms.keys()):
             raise exceptions.InvalidField(
                 "The cryptographic algorithm {0} is not a supported symmetric "
                 "key algorithm.".format(algorithm)
@@ -147,7 +147,7 @@ class CryptographyEngine(api.CryptographicEngine):
             >>> key = engine.create_asymmetric_key(
             ...     CryptographicAlgorithm.RSA, 2048)
         """
-        if algorithm not in self._asymetric_key_algorithms.keys():
+        if algorithm not in list(self._asymetric_key_algorithms.keys()):
             raise exceptions.InvalidField(
                 "The cryptographic algorithm ({0}) is not a supported "
                 "asymmetric key algorithm.".format(algorithm)
@@ -184,7 +184,7 @@ class CryptographyEngine(api.CryptographicEngine):
 
         mac_data = None
 
-        if algorithm in self._hash_algorithms.keys():
+        if algorithm in list(self._hash_algorithms.keys()):
             self.logger.info(
                 "Generating a hash-based message authentication code using "
                 "{0}".format(algorithm.name)
@@ -200,7 +200,7 @@ class CryptographyEngine(api.CryptographicEngine):
                     "An error occurred while computing an HMAC. "
                     "See the server log for more information."
                 )
-        elif algorithm in self._symmetric_key_algorithms.keys():
+        elif algorithm in list(self._symmetric_key_algorithms.keys()):
             self.logger.info(
                 "Generating a cipher-based message authentication code using "
                 "{0}".format(algorithm.name)

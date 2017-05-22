@@ -64,7 +64,7 @@ class DiscoverVersionsRequestPayload(Struct):
 
     def __validate(self):
         if isinstance(self.protocol_versions, list):
-            for i in xrange(len(self.protocol_versions)):
+            for i in range(len(self.protocol_versions)):
                 protocol_version = self.protocol_versions[i]
                 if not isinstance(protocol_version, ProtocolVersion):
                     msg = "invalid protocol version ({0} in list)".format(i)
@@ -118,7 +118,7 @@ class DiscoverVersionsResponsePayload(Struct):
 
     def __validate(self):
         if isinstance(self.protocol_versions, list):
-            for i in xrange(len(self.protocol_versions)):
+            for i in range(len(self.protocol_versions)):
                 protocol_version = self.protocol_versions[i]
                 if not isinstance(protocol_version, ProtocolVersion):
                     msg = "invalid protocol version ({0} in list)".format(i)

@@ -242,7 +242,7 @@ class TestKmipServerConfig(testtools.TestCase):
 
         # Test that the setting is set correctly with a valid value.
         c._set_hostname('127.0.0.1')
-        self.assertIn('hostname', c.settings.keys())
+        self.assertIn('hostname', list(c.settings.keys()))
         self.assertEqual('127.0.0.1', c.settings.get('hostname'))
 
         # Test that a ConfigurationError is generated when setting the wrong
@@ -266,7 +266,7 @@ class TestKmipServerConfig(testtools.TestCase):
 
         # Test that the setting is set correctly with a valid value.
         c._set_port(5696)
-        self.assertIn('port', c.settings.keys())
+        self.assertIn('port', list(c.settings.keys()))
         self.assertEqual(5696, c.settings.get('port'))
 
         # Test that a ConfigurationError is generated when setting the wrong
@@ -299,21 +299,21 @@ class TestKmipServerConfig(testtools.TestCase):
         c = config.KmipServerConfig()
         c._logger = mock.MagicMock()
 
-        self.assertNotIn('certificate_path', c.settings.keys())
+        self.assertNotIn('certificate_path', list(c.settings.keys()))
 
         # Test that the setting is set correctly with a valid value.
         with mock.patch('os.path.exists') as os_mock:
             os_mock.return_value = True
             c._set_certificate_path('/test/path/server.crt')
 
-        self.assertIn('certificate_path', c.settings.keys())
+        self.assertIn('certificate_path', list(c.settings.keys()))
         self.assertEqual(
             '/test/path/server.crt',
             c.settings.get('certificate_path')
         )
 
         c._set_certificate_path(None)
-        self.assertIn('certificate_path', c.settings.keys())
+        self.assertIn('certificate_path', list(c.settings.keys()))
         self.assertEqual(None, c.settings.get('certificate_path'))
 
         # Test that a ConfigurationError is generated when setting the wrong
@@ -358,21 +358,21 @@ class TestKmipServerConfig(testtools.TestCase):
         c = config.KmipServerConfig()
         c._logger = mock.MagicMock()
 
-        self.assertNotIn('key_path', c.settings.keys())
+        self.assertNotIn('key_path', list(c.settings.keys()))
 
         # Test that the setting is set correctly with a valid value.
         with mock.patch('os.path.exists') as os_mock:
             os_mock.return_value = True
             c._set_key_path('/test/path/server.key')
 
-        self.assertIn('key_path', c.settings.keys())
+        self.assertIn('key_path', list(c.settings.keys()))
         self.assertEqual(
             '/test/path/server.key',
             c.settings.get('key_path')
         )
 
         c._set_key_path(None)
-        self.assertIn('key_path', c.settings.keys())
+        self.assertIn('key_path', list(c.settings.keys()))
         self.assertEqual(None, c.settings.get('key_path'))
 
         # Test that a ConfigurationError is generated when setting the wrong
@@ -417,21 +417,21 @@ class TestKmipServerConfig(testtools.TestCase):
         c = config.KmipServerConfig()
         c._logger = mock.MagicMock()
 
-        self.assertNotIn('ca_path', c.settings.keys())
+        self.assertNotIn('ca_path', list(c.settings.keys()))
 
         # Test that the setting is set correctly with a valid value.
         with mock.patch('os.path.exists') as os_mock:
             os_mock.return_value = True
             c._set_ca_path('/test/path/ca.crt')
 
-        self.assertIn('ca_path', c.settings.keys())
+        self.assertIn('ca_path', list(c.settings.keys()))
         self.assertEqual(
             '/test/path/ca.crt',
             c.settings.get('ca_path')
         )
 
         c._set_ca_path(None)
-        self.assertIn('ca_path', c.settings.keys())
+        self.assertIn('ca_path', list(c.settings.keys()))
         self.assertEqual(None, c.settings.get('ca_path'))
 
         # Test that a ConfigurationError is generated when setting the wrong
@@ -464,11 +464,11 @@ class TestKmipServerConfig(testtools.TestCase):
 
         # Test that the setting is set correctly with a valid value.
         c._set_auth_suite('Basic')
-        self.assertIn('auth_suite', c.settings.keys())
+        self.assertIn('auth_suite', list(c.settings.keys()))
         self.assertEqual('Basic', c.settings.get('auth_suite'))
 
         c._set_auth_suite('TLS1.2')
-        self.assertIn('auth_suite', c.settings.keys())
+        self.assertIn('auth_suite', list(c.settings.keys()))
         self.assertEqual('TLS1.2', c.settings.get('auth_suite'))
 
         # Test that a ConfigurationError is generated when setting the wrong
@@ -493,21 +493,21 @@ class TestKmipServerConfig(testtools.TestCase):
         c = config.KmipServerConfig()
         c._logger = mock.MagicMock()
 
-        self.assertNotIn('policy_path', c.settings.keys())
+        self.assertNotIn('policy_path', list(c.settings.keys()))
 
         # Test that the setting is set correctly with a valid value.
         with mock.patch('os.path.exists') as os_mock:
             os_mock.return_value = True
             c._set_policy_path('/test/path/policies')
 
-        self.assertIn('policy_path', c.settings.keys())
+        self.assertIn('policy_path', list(c.settings.keys()))
         self.assertEqual(
             '/test/path/policies',
             c.settings.get('policy_path')
         )
 
         c._set_policy_path(None)
-        self.assertIn('policy_path', c.settings.keys())
+        self.assertIn('policy_path', list(c.settings.keys()))
         self.assertEqual(None, c.settings.get('policy_path'))
 
         # Test that a ConfigurationError is generated when setting the wrong
